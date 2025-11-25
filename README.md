@@ -18,5 +18,5 @@ python3 scraping.py
 ```
 
 <p align="center">
-<img src="Img/muestra1.png">
+<img src="./Img/Captura.png">
 </p>
