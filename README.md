@@ -14,15 +14,9 @@ git clone https://github.com/Devsebastian44/Web-Scraping.git
 
 cd Web-Scraping
 
-pip3 install -r requirements.txt
-
 python3 scraping.py
 ```
 
 <p align="center">
 <img src="Img/muestra1.png">
-</p>
-
-<p align="center">
-<img src="Img/muestra2.png">
 </p>

@@ -3,29 +3,43 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import os
 
-os.system("clear")
+# Limpieza compatible con Windows y Linux
+os.system("cls" if os.name == "nt" else "clear")
 
-print("")
-print("\33[31m  __      __      ___.       _________                          .__                   \033[0m")           
-print("\33[31m /  \    /  \ ____\_ |__    /   _____/ ________________  ______ |__| ____    ____     \033[0m")
-print("\33[31m \   \/\/   // __ \| __ \   \_____  \_/ ___\_  __ \__  \ \____ \|  |/    \  / ___\    \033[0m")
-print("\33[31m  \        /\  ___/| \_\ \  /        \  \___|  | \// __ \|  |_> >  |   |  \/ /_/  >   \033[0m")
-print("\33[31m   \__/\  /  \___  >___  / /_______  /\___  >__|  (____  /   __/|__|___|  /\___  /    \033[0m")
-print("\33[31m        \/       \/    \/          \/     \/           \/|__|           \//_____/     \033[0m")
-print("")
+def banner():
+    print("")
+    print("\33[31m" + r"  __      __      ___.       _________                          .__                   " + "\033[0m")
+    print("\33[31m" + r" /  \    /  \ ____\_ |__    /   _____/ ________________  ______ |__| ____    ____     " + "\033[0m")
+    print("\33[31m" + r" \   \/\/   // __ \| __ \   \_____  \_/ ___\_  __ \__  \ \____ \|  |/    \  / ___\    " + "\033[0m")
+    print("\33[31m" + r"  \        /\  ___/| \_\ \  /        \  \___|  | \// __ \|  |_> >  |   |  \/ /_/  >   " + "\033[0m")
+    print("\33[31m" + r"   \__/\  /  \___  >___  / /_______  /\___  >__|  (____  /   __/|__|___|  /\___  /    " + "\033[0m")
+    print("\33[31m" + r"        \/       \/    \/          \/     \/           \/|__|           \//_____/     " + "\033[0m")
+    print("")
+
+
+def crear_carpeta(nombre):
+    if not os.path.exists(nombre):
+        os.makedirs(nombre)
+    return nombre
 
 
 def menu_principal():
     while True:
-        print("  [1] Metodo 1")
-        print("  [2] Metodo 2")
-        print("  [3] Metodo 3")
+        os.system("cls" if os.name == "nt" else "clear")
+        banner() 
+        print("")
+        print("  [1] Scrapear archivos JS y CSS")
+        print("  [2] Verificar disponibilidad de URL y extraer enlaces")
+        print("  [3] Extraer todos los enlaces de una página web")
         print("  [4] Salir")
+
         opcion = input("\033[1m\n[+] Ingrese una opción: \033[0m")
 
         if opcion == "":
-            print("\033[1m\n[+] Por favor ingrese una opción: \033[0m")
-        elif opcion == "1":
+            print("\033[1m\n[+] Por favor ingrese una opción válida.\033[0m")
+            continue
+
+        if opcion == "1":
             menu1()
         elif opcion == "2":
             menu2()
@@ -33,9 +47,19 @@ def menu_principal():
             menu3()
         elif opcion == "4":
             break
+        else:
+            print("\033[1m[+] Opción no válida.\033[0m")
+
+
+def regresar_menu():
+    input("\n\033[1m[+] Presiona ENTER para regresar al menú principal...\033[0m")
+    os.system("cls" if os.name == "nt" else "clear")
+    banner()
 
 
 def menu1():
+    carpeta = crear_carpeta("Salida_JS_CSS")
+
     while True:
         url = input("\033[1m\n[+] Ingrese la URL: \033[0m")
 
@@ -55,41 +79,41 @@ def menu1():
         archivos_de_script = []
         archivos_de_css = []
 
-        # Scripts
         for script in sopa.find_all("script"):
             if script.attrs.get("src"):
                 url_script = urljoin(url, script.attrs.get("src"))
                 archivos_de_script.append(url_script)
 
-        # CSS
         for css in sopa.find_all("link"):
             if css.attrs.get("href") and "css" in css.attrs.get("href"):
                 url_css = urljoin(url, css.attrs.get("href"))
                 archivos_de_css.append(url_css)
 
-        # Guardar archivos
-        with open("javascript.txt", "w") as f:
+        with open(os.path.join(carpeta, "javascript.txt"), "w") as f:
             for archivo_js in archivos_de_script:
                 f.write(archivo_js + "\n")
 
-        with open("css.txt", "w") as f:
+        with open(os.path.join(carpeta, "css.txt"), "w") as f:
             for archivo_css in archivos_de_css:
                 f.write(archivo_css + "\n")
-
+        
+        print("")
         print("Total de archivos JS:", len(archivos_de_script))
         print("Total de archivos CSS:", len(archivos_de_css))
+        print(f"[+] Archivos guardados en: {carpeta}")
+
+        regresar_menu()
+        break
 
 
 def menu2():
+    carpeta = crear_carpeta("Salida_Disponibilidad")
+
     while True:
-        url = input("Ingrese la URL: ")
+        url = input("\033[1m\n[+] Ingrese la URL: \033[0m")
 
         try:
             response = requests.get(url)
-            if response.status_code == 200:
-                print(f"La URL {url} está disponible.")
-            else:
-                print(f"La URL {url} no está disponible. Código HTTP: {response.status_code}")
 
             soup = BeautifulSoup(response.content, "html.parser")
             title = soup.title.text if soup.title else "Sin título"
@@ -99,25 +123,34 @@ def menu2():
 
             file_name = (
                 url.replace("http://", "")
-                   .replace("https://", "")
-                   .replace(".", "_")
-                   .replace("/", "_")
+                .replace("https://", "")
+                .replace(".", "_")
+                .replace("/", "_")
             ) + ".txt"
 
-            with open(file_name, "w+") as f:
+            ruta_archivo = os.path.join(carpeta, file_name)
+
+            with open(ruta_archivo, "w+") as f:
                 f.write(f"Título: {title}\n\nEnlaces:\n[+] {links_text}")
 
+            print("")    
             print(f"Título: {title}")
             print("Enlaces encontrados:")
             print(links_text)
+            print(f"[+] Archivo guardado en: {ruta_archivo}")
 
         except Exception as e:
-            print(f"No se pudo acceder a la URL {url}: {e}")
+            print(f"No se pudo acceder: {e}")
+
+        regresar_menu()
+        break
 
 
 def menu3():
+    carpeta = crear_carpeta("Salida_Enlaces")
+
     while True:
-        url = input("Ingrese la URL: ")
+        url = input("\033[1m\n[+] Ingrese la URL: \033[0m")
 
         try:
             response = requests.get(url)
@@ -130,13 +163,18 @@ def menu3():
         links = [link.get('href') for link in soup.find_all('a') if link.get("href")]
 
         filename = os.path.basename(url).replace("/", "_") + '.txt'
+        ruta_archivo = os.path.join(carpeta, filename)
 
-        with open(filename, 'w+') as f:
+        with open(ruta_archivo, 'w+') as f:
+            print("")
             for link in links:
                 f.write("[+] " + link + "\n")
                 print("[+] " + link)
 
-        print("La salida se ha guardado en el archivo", filename)
+        print("\n[+] La salida se ha guardado en:", ruta_archivo)
+
+        regresar_menu()
+        break
 
 
 menu_principal()
