@@ -30,8 +30,7 @@ def menu_principal():
         print("")
         print("  [1] Scrapear archivos JS y CSS")
         print("  [2] Verificar disponibilidad de URL y extraer enlaces")
-        print("  [3] Extraer todos los enlaces de una página web")
-        print("  [4] Salir")
+        print("  [3] Salir")
 
         opcion = input("\033[1m\n[+] Ingrese una opción: \033[0m")
 
@@ -44,8 +43,6 @@ def menu_principal():
         elif opcion == "2":
             menu2()
         elif opcion == "3":
-            menu3()
-        elif opcion == "4":
             break
         else:
             print("\033[1m[+] Opción no válida.\033[0m")
@@ -141,37 +138,6 @@ def menu2():
 
         except Exception as e:
             print(f"No se pudo acceder: {e}")
-
-        regresar_menu()
-        break
-
-
-def menu3():
-    carpeta = crear_carpeta("Salida_Enlaces")
-
-    while True:
-        url = input("\033[1m\n[+] Ingrese la URL: \033[0m")
-
-        try:
-            response = requests.get(url)
-        except:
-            print("Error al conectar.")
-            continue
-
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        links = [link.get('href') for link in soup.find_all('a') if link.get("href")]
-
-        filename = os.path.basename(url).replace("/", "_") + '.txt'
-        ruta_archivo = os.path.join(carpeta, filename)
-
-        with open(ruta_archivo, 'w+') as f:
-            print("")
-            for link in links:
-                f.write("[+] " + link + "\n")
-                print("[+] " + link)
-
-        print("\n[+] La salida se ha guardado en:", ruta_archivo)
 
         regresar_menu()
         break
