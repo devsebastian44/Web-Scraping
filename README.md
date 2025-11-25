@@ -1,6 +1,8 @@
+# Web Scraping
+
 
 <p align="center">
-<img src="Logotipo.jpg">
+<img src="./Img/Logo.png" height="300px" width="350px">
 </p>
 
 Web scraping es una técnica de extracción de datos utilizada para recopilar información de páginas web de forma automatizada.
