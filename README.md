@@ -55,11 +55,3 @@ Web-Scraping/
 
 ## ⚠️ Advertencia Ética
 Esta herramienta debe utilizarse exclusivamente con fines educativos, de auditoría autorizada o sobre sitios que permitan el scraping según su archivo `robots.txt`. El autor no se hace responsable del mal uso de este software.
-
-## 📜 Licencia
-Este proyecto se distribuye bajo la **Licencia MIT**. Siéntete libre de usarlo, modificarlo y compartirlo.
-
----
-*Desarrollado con ❤️ por [Sebastian](https://github.com/Devsebastian44)*
-
-
