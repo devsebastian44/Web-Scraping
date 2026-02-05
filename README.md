@@ -1,52 +1,67 @@
-## Web Scraping
-
-<p align="center">
-  <img src="./Img/Logo.png" height="300px" width="350px">
-</p>
-
-Web scraping es una técnica de extracción de datos utilizada para recopilar información de páginas web de forma automatizada.
-
-El proceso generalmente implica:
-- Automatización de solicitudes HTTP.
-- Extracción de datos relevantes de la respuesta del servidor.
-- Almacenamiento de los datos en un formato estructurado (CSV, JSON, etc.).
+# 🕷️ Web Scraping Tool
 
 ---
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitLab CI](https://img.shields.io/badge/gitlab-ci-%23181717.svg?logo=gitlab&logoColor=white)](https://about.gitlab.com/)
+
+Herramienta profesional de **Web Scraping** desarrollada en Python para la extracción automatizada de activos (JS, CSS) y el análisis de disponibilidad de enlaces en sitios web.
+
+
+## 🎯 Objetivo
+Este proyecto busca proporcionar una utilidad eficiente y fácil de usar para desarrolladores, analistas de datos y profesionales de ciberseguridad que necesiten auditar o extraer información pública de páginas web de forma estructurada.
+
+## 📂 Estructura del Proyecto
+La arquitectura del repositorio sigue estándares profesionales para facilitar la mantenibilidad y escalabilidad:
+
+```text
+Web-Scraping/
+├── data/           # Repositorio para salidas y datasets generados
+├── src/            # Código fuente principal
+│   └── scraping.py # Script principal de la aplicación
+├── .gitignore      # Definición de archivos excluidos
+├── .gitlab-ci.yml  # Configuración de integración continua
+├── LICENSE         # Licencia MIT
+└── README.md       # Documentación principal
+```
 
 ## ⚙️ Requisitos
+- **Lenguaje:** Python 3.8 o superior
+- **Dependencias:**
+  - `requests`: Manejo de solicitudes HTTP.
+  - `beautifulsoup4`: Análisis de documentos HTML.
 
-- Python 3.8 o superior
-- Librerías: requests, BeautifulSoup4, os
+## 🚀 Instalación y Uso
 
----
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/Devsebastian44/Web-Scraping.git
+   cd Web-Scraping
+   ```
 
-## 🚀 Instalación
+2. **Instalar dependencias:**
+   ```bash
+   pip install requests beautifulsoup4
+   ```
 
-Clona el repositorio y accede al directorio:
+3. **Ejecutar la herramienta:**
+   ```bash
+   python src/scraping.py
+   ```
 
-```bash
-git clone https://github.com/Devsebastian44/Web-Scraping.git
-cd Web-Scraping
-```
+## 🛠️ Funcionalidades
+- **Extracción de Activos:** Identifica y lista todos los archivos JavaScript y CSS vinculados a una URL.
+- **Auditoría de Enlaces:** Clasifica enlaces en internos, externos y relativos, verificando su disponibilidad.
+- **Reportes Automáticos:** Genera archivos de texto estructurados en carpetas dedicadas según el análisis.
 
----
-
-## ▶️ Uso
-
-Ejecuta el script principal:
-
-```bash
-python3 scraping.py
-```
-
-<p align="center">
-  <img src="./Img/Captura.png">
-</p>
-
----
+## ⚠️ Advertencia Ética
+Esta herramienta debe utilizarse exclusivamente con fines educativos, de auditoría autorizada o sobre sitios que permitan el scraping según su archivo `robots.txt`. El autor no se hace responsable del mal uso de este software.
 
 ## 📜 Licencia
+Este proyecto se distribuye bajo la **Licencia MIT**. Siéntete libre de usarlo, modificarlo y compartirlo.
 
-Este proyecto está bajo la licencia MIT. Puedes usarlo libremente, siempre citando al autor.
+---
+*Desarrollado con ❤️ por [Sebastian](https://github.com/Devsebastian44)*
 
 
