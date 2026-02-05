@@ -1,8 +1,10 @@
 # 🕷️ Web Scraping Tool
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitLab CI](https://img.shields.io/badge/gitlab-ci-%23181717.svg?logo=gitlab&logoColor=white)](https://about.gitlab.com/)
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
+![GitLab](https://img.shields.io/badge/GitLab-Repository-orange?logo=gitlab)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
+
 
 Herramienta profesional de **Web Scraping** desarrollada en Python para la extracción automatizada de activos (JS, CSS) y el análisis de disponibilidad de enlaces en sitios web.
 
