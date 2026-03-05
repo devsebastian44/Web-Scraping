@@ -25,6 +25,6 @@ security_scan:
   stage: security
   script:
     - echo "Running basic security checks..."
-    - # Aquí se podrían integrar herramientas como Bandit o Safety
+    # Aquí se podrían integrar herramientas como Bandit o Safety
     - grep -r "password" . || true
     - grep -r "api_key" . || true
