@@ -1,20 +1,30 @@
-image: python:3.9
-
 stages:
   - lint
   - test
+  - security
+
+variables:
+  PYTHON_VERSION: "3.9"
+
+before_script:
+  - python --version
+  - pip install requests beautifulsoup4 flake8
 
 lint:
   stage: lint
-  before_script:
-    - pip install flake8
   script:
     - flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
     - flake8 src/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-# Test placeholder (if there were unit tests)
-# test:
-#   stage: test
-#   script:
-#     - pip install -r requirements.txt
-#     - pytest tests/
+test:
+  stage: test
+  script:
+    - python -m unittest discover tests/
+
+security_scan:
+  stage: security
+  script:
+    - echo "Running basic security checks..."
+    - # Aquí se podrían integrar herramientas como Bandit o Safety
+    - grep -r "password" . || true
+    - grep -r "api_key" . || true

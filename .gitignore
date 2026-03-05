@@ -21,19 +21,22 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environments
-.venv/
+# Specific to this project
+data/*
+!data/.gitkeep
+*.log
+scripts/publish_public.ps1
+
+# Virtual Environment
 venv/
+.venv/
 ENV/
 
-# Project Specific - Data/Output
-data/
-Salida_JS_CSS/
-Salida_Disponibilidad/
-*.txt
-*.json
-*.csv
+# IDEs
+.vscode/
+.idea/
 
-# OS files
-.DS_Store
+# OS
 Thumbs.db
+Desktop.ini
+.DS_Store
