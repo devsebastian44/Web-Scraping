@@ -35,7 +35,7 @@ Para garantizar la seguridad y el profesionalismo del portafolio, se utiliza un 
 > [!IMPORTANT]
 > El repositorio completo con todo el código funcional (tests, src, binarios construíbles) está disponible operativamente en **GitLab** para su análisis y ejecución integral.
 
-https://gitlab.com/group-programming-lab/Router-Linux
+https://gitlab.com/group-programming-lab/Web-Scraping.git
 
 
 ## ⚙️ Uso Profesional
