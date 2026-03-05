@@ -31,6 +31,13 @@ Para garantizar la seguridad y el profesionalismo del portafolio, se utiliza un 
 - Se limpia el CI/CD interno.
 - Se excluyen logs y datos temporales.
 
+
+> [!IMPORTANT]
+> El repositorio completo con todo el código funcional (tests, src, binarios construíbles) está disponible operativamente en **GitLab** para su análisis y ejecución integral.
+
+https://gitlab.com/group-programming-lab/Router-Linux
+
+
 ## ⚙️ Uso Profesional
 ### Requisitos
 - Python 3.9+
@@ -49,6 +56,3 @@ Para actualizar el portafolio público desde el entorno de laboratorio:
 
 ## ⚠️ Advertencia Ética
 Este software se entrega con fines educativos y de auditoría autorizada. El uso de esta herramienta sobre sitios de terceros debe respetar siempre los términos de servicio y el archivo `robots.txt`.
-
----
-*Desarrollado bajo principios de Security by Design.*
