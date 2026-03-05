@@ -1,3 +1,4 @@
+import unittest
 from src.scraping import validar_url
 
 class TestWebScraper(unittest.TestCase):
