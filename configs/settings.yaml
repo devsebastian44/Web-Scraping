@@ -1,0 +1,14 @@
+# Configuración de Usuario - Web Scraper
+scraper:
+  target_urls: []
+  max_depth: 2
+  timeout: 10
+  user_agent: "WebScraperPro/1.0"
+
+output:
+  format: "txt" # json, txt, csv
+  save_path: "data/"
+
+filters:
+  exclude_domains: []
+  include_extensions: [".js", ".css", ".pdf"]
