@@ -1,9 +1,10 @@
 # 🕷️ Web Scraping Pro: Audit & Extraction Tool
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
-![GitLab](https://img.shields.io/badge/GitLab-Private_Lab-orange?logo=gitlab)
-![GitHub](https://img.shields.io/badge/GitHub-Public_Portfolio-black?logo=github)
-![DevSecOps](https://img.shields.io/badge/DevSecOps-Certified-brightgreen)
+![GitLab](https://img.shields.io/badge/GitLab-Repository-orange?logo=gitlab)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
+![API](https://img.shields.io/badge/API-REST-blue)
 
 ## 🎯 Objetivo Técnico
 Herramienta profesional de **Web Scraping** diseñada para la extracción automatizada de activos (JS, CSS) y auditoría de enlaces. Este proyecto implementa una arquitectura **DevSecOps** real con separación estricta entre el entorno de desarrollo privado (GitLab) y el portafolio público (GitHub).
