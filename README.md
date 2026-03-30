@@ -1,59 +1,189 @@
-# 🕷️ Web Scraping Pro: Audit & Extraction Tool
+ 🕷️ Web Scraping — Extractor de Datos y URLs
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
-![GitLab](https://img.shields.io/badge/GitLab-Repository-orange?logo=gitlab)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
-![API](https://img.shields.io/badge/API-REST-blue)
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
+![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup4-Parsing-43B02A?style=flat&logo=python&logoColor=white)
+![Requests](https://img.shields.io/badge/Requests-HTTP%20Client-FF6C37?style=flat&logo=python&logoColor=white)
+![License MIT](https://img.shields.io/badge/License-MIT-F7CA18?style=flat&logo=open-source-initiative&logoColor=black)
+![Data Science](https://img.shields.io/badge/Área-Data%20Science-8A2BE2?style=flat&logo=databricks&logoColor=white)
+![Estado](https://img.shields.io/badge/Estado-Activo-brightgreen?style=flat)
 
-## 🎯 Objetivo Técnico
-Herramienta profesional de **Web Scraping** diseñada para la extracción automatizada de activos (JS, CSS) y auditoría de enlaces. Este proyecto implementa una arquitectura **DevSecOps** real con separación estricta entre el entorno de desarrollo privado (GitLab) y el portafolio público (GitHub).
+Herramienta de extracción automatizada de datos y recursos desde páginas web estáticas, desarrollada en Python. Permite auditar activos web, recolectar enlaces y procesar el contenido HTML de cualquier sitio objetivo de forma estructurada y reproducible.
 
-## 🏗️ Arquitectura del Repositorio
-La estructura sigue estándares de escalabilidad y seguridad:
+---
 
-- `src/`: Lógica central del scrapers.
-- `tests/`: Batería de pruebas unitarias y de integración (Privado).
-- `scripts/`: Automatización DevSecOps, incluyendo `publish_public.ps1`.
-- `docs/`: Documentación técnica detallada.
-- `configs/`: Configuraciones de entorno y parámetros (Privado).
-- `data/`: Repositorio local para resultados y datasets (Ignorado en Git).
+## 🧠 Overview
 
-## 🔒 Estrategia DevSecOps: GitLab ➔ GitHub
-Para garantizar la seguridad y el profesionalismo del portafolio, se utiliza un flujo de sincronización sanitizada:
+Este proyecto implementa un pipeline de web scraping orientado a la recolección de datos públicos desde páginas web. A partir de una URL objetivo, el script realiza peticiones HTTP, parsea el árbol HTML resultante y extrae elementos de interés como hipervínculos, recursos embebidos (JS, CSS) y texto estructurado.
 
-1. **GitLab (Source of Truth):** Contiene el código completo, CI/CD interno, tests, y configuraciones sensibles.
-2. **Sanitización Automática:** El script `publish_public.ps1` automatiza la limpieza antes de publicar.
-3. **GitHub (Public Mirror):** Versión lista para producción/portafolio, libre de componentes internos, tests de laboratorio o archivos sensibles.
+El proyecto está pensado como base modular para tareas de **análisis de datos web**, **auditoría de activos** y **construcción de datasets**, siguiendo buenas prácticas de organización de código con separación clara entre fuentes, documentación y diagramas.
 
-### ¿Qué se sanitiza?
-- Se eliminan carpetas de `tests/` y `configs/`.
-- Se remueven scripts de automatización privada.
-- Se limpia el CI/CD interno.
-- Se excluyen logs y datos temporales.
+---
 
+## ⚙️ Features
 
-> [!IMPORTANT]
-> El repositorio completo con todo el código funcional (tests, src, binarios construíbles) está disponible operativamente en **GitLab** para su análisis y ejecución integral.
+- 🌐 **Peticiones HTTP controladas** — Envío de solicitudes GET con manejo de respuestas y códigos de estado HTTP
+- 🧩 **Parseo HTML estructurado** — Navegación del árbol DOM mediante BeautifulSoup4 para extracción precisa de elementos
+- 🔗 **Recolección de URLs** — Extracción de todos los hipervínculos (`<a href>`) presentes en la página objetivo
+- 📦 **Auditoría de activos** — Detección de recursos embebidos: archivos `.js`, `.css` e imágenes referenciadas
+- 💾 **Almacenamiento local de resultados** — Los datos extraídos se guardan en el directorio `data/` (excluido del repositorio)
+- 📐 **Diagramas de arquitectura** — Carpeta `diagrams/` con visualizaciones del flujo del sistema
+- 📄 **Documentación técnica** — Carpeta `docs/` con especificaciones y guías de uso detalladas
 
-https://gitlab.com/group-data-ia-lab/Web-Scraping.git
+---
 
+## 🛠️ Tech Stack
 
-## ⚙️ Uso Profesional
-### Requisitos
-- Python 3.9+
-- Dependencias: `requests`, `beautifulsoup4`
+| Componente | Tecnología | Descripción |
+|---|---|---|
+| Lenguaje | **Python 3.9+** | Lenguaje principal del proyecto |
+| HTTP Client | **requests** | Realización y gestión de peticiones web |
+| HTML Parser | **beautifulsoup4** | Parseo y navegación del árbol DOM |
+| Parser Backend | **html.parser** | Parser nativo de Python, sin dependencias externas |
+| Control de versiones | **Git** | Gestión del historial y ramas del proyecto |
 
-### Ejecución
+---
+
+## 📦 Installation
+
+### Requisitos previos
+
+- Python **3.9** o superior instalado
+- `pip` disponible en el entorno
+
+### Pasos de instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/devsebastian44/Web-Scraping.git
+
+# 2. Ingresar al directorio del proyecto
+cd Web-Scraping
+
+# 3. Crear un entorno virtual (recomendado)
+python -m venv venv
+
+# Activar en Linux / macOS
+source venv/bin/activate
+
+# Activar en Windows
+venv\Scripts\activate
+
+# 4. Instalar dependencias
+pip install requests beautifulsoup4
+```
+
+---
+
+## ▶️ Usage
+
+### Ejecución del script principal
+
 ```bash
 python src/scraping.py
 ```
 
-### Publicación Segura (DevSecOps)
-Para actualizar el portafolio público desde el entorno de laboratorio:
-```powershell
-./scripts/publish_public.ps1
+### Flujo de ejecución esperado
+
+```
+[*] URL objetivo: https://ejemplo.com
+[*] Enviando solicitud HTTP...
+[+] Código de estado: 200 OK
+[+] Parseando contenido HTML...
+[+] URLs encontradas    : 42
+[+] Recursos JS         : 8
+[+] Recursos CSS        : 4
+[*] Resultados almacenados en: data/output.json
 ```
 
-## ⚠️ Advertencia Ética
-Este software se entrega con fines educativos y de auditoría autorizada. El uso de esta herramienta sobre sitios de terceros debe respetar siempre los términos de servicio y el archivo `robots.txt`.
+### Personalización del objetivo
+
+Edita la variable de URL al inicio de `src/scraping.py`:
+
+```python
+TARGET_URL = "https://tu-sitio-objetivo.com"
+```
+
+---
+
+## 📁 Project Structure
+
+```
+Web-Scraping/
+│
+├── src/                  # Código fuente principal
+│   └── scraping.py       # Script central de extracción y parseo
+│
+├── docs/                 # Documentación técnica del proyecto
+│
+├── diagrams/             # Diagramas de arquitectura y flujo de datos
+│
+├── data/                 # Resultados generados (excluido de Git)
+│
+├── .gitignore            # Exclusiones del repositorio
+├── LICENSE               # Licencia MIT
+└── README.md             # Este archivo
+```
+
+> Los resultados de ejecución se almacenan localmente en `data/` y no forman parte del historial de Git, garantizando que datos sensibles o datasets privados no sean expuestos accidentalmente.
+
+---
+
+## 🔐 Security
+
+- **Uso responsable obligatorio:** esta herramienta debe utilizarse únicamente sobre sitios web propios o con autorización expresa del propietario del sitio.
+- **Respeto a `robots.txt`:** se recomienda verificar y respetar siempre el archivo `robots.txt` del sitio antes de ejecutar cualquier extracción.
+- **Sin almacenamiento en el repositorio:** el directorio `data/` está incluido en `.gitignore` para evitar la exposición accidental de datos extraídos.
+- **Sin credenciales en el código:** el script no gestiona ni almacena tokens, cookies de sesión ni credenciales de ningún tipo en el código fuente.
+
+> ⚠️ **Aviso ético:** el uso de esta herramienta sobre sitios sin autorización puede violar sus Términos de Servicio y legislaciones de protección de datos vigentes. El autor no se responsabiliza por usos indebidos.
+
+---
+
+## 🌐 Repository Architecture
+
+Este proyecto sigue una arquitectura de repositorio distribuida:
+
+| Plataforma | Rol | Contenido |
+|---|---|---|
+| **GitHub** | Portafolio público | Código fuente, documentación y diagramas |
+| **GitLab** | Laboratorio completo | Implementación extendida, tests y configuraciones |
+
+### 🔗 Full Source Code
+
+👉 Código completo e implementación integral disponible en GitLab:
+**[https://gitlab.com/group-data-ia-lab/Web-Scraping](https://gitlab.com/group-data-ia-lab/Web-Scraping)**
+
+---
+
+## 🚀 Roadmap
+
+- [ ] Soporte para argumentos de línea de comandos con `argparse` (URL, formato de salida, verbosidad)
+- [ ] Exportación de resultados en múltiples formatos: `JSON`, `CSV`, `Excel`
+- [ ] Soporte para sitios dinámicos (JavaScript rendering) mediante integración con **Playwright** o **Selenium**
+- [ ] Implementación de manejo automático de `robots.txt` y `rate limiting` configurable
+- [ ] Módulo de visualización de resultados con `pandas` y `matplotlib`
+- [ ] Containerización con **Docker** para ejecuciones reproducibles y portables
+- [ ] Tests unitarios y de integración con `pytest`
+
+---
+
+## 📄 License
+
+Este proyecto está distribuido bajo la licencia **MIT**.
+Consulta el archivo [`LICENSE`](./LICENSE) para ver los términos completos.
+
+---
+
+## 👨‍💻 Author
+
+**Sebastian Zhunaula**
+Desarrollador de software especializado en automatización de datos y scripting Python.
+
+- 🐙 GitHub: [@devsebastian44](https://github.com/devsebastian44)
+- 🦊 GitLab: [group-data-ia-lab](https://gitlab.com/group-data-ia-lab)
+
+---
+
+<div align="center">
+  <sub>🐍 Construido con Python · beautifulsoup4 · requests</sub>
+</div>
