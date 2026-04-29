@@ -69,7 +69,7 @@ source venv/bin/activate
 venv\Scripts\activate
 
 # 4. Instalar dependencias
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 ```
 
 ---
@@ -105,6 +105,37 @@ TARGET_URL = "https://tu-sitio-objetivo.com"
 
 ---
 
+## 🧪 Testing
+
+El proyecto incluye pruebas automatizadas locales que utilizan **mocks** para simular respuestas HTTP, lo que significa que puedes ejecutar todas las pruebas sin necesidad de conexión a internet ni afectar servidores reales.
+
+Para ejecutar las pruebas:
+
+```bash
+# Ejecutar todas las pruebas con pytest
+pytest tests/
+
+# O utilizar el módulo unittest integrado de Python
+python -m unittest discover tests/
+```
+
+---
+
+## 🤝 Contributing
+
+¡Las contribuciones son bienvenidas! Para colaborar en este proyecto:
+
+1. Realiza un **Fork** del repositorio.
+2. Clona tu fork localmente: `git clone https://github.com/TU_USUARIO/Web-Scraping.git`
+3. Crea una rama para tu feature o bugfix: `git checkout -b feature/nueva-funcionalidad`
+4. Realiza tus cambios asegurándote de no incluir credenciales ni endpoints sensibles.
+5. Ejecuta las pruebas locales (`pytest tests/`) y asegúrate de que pasen correctamente.
+6. Haz commit de tus cambios utilizando **Conventional Commits** (ej. `feat: añade soporte para exportar a CSV`).
+7. Sube tus cambios a tu fork: `git push origin feature/nueva-funcionalidad`
+8. Abre un **Pull Request** hacia la rama `main` del repositorio original. Nuestro pipeline de CI/CD validará automáticamente tus cambios.
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -135,7 +166,7 @@ Web-Scraping/
 - **Sin almacenamiento en el repositorio:** el directorio `data/` está incluido en `.gitignore` para evitar la exposición accidental de datos extraídos.
 - **Sin credenciales en el código:** el script no gestiona ni almacena tokens, cookies de sesión ni credenciales de ningún tipo en el código fuente.
 
-> ⚠️ **Aviso ético:** el uso de esta herramienta sobre sitios sin autorización puede violar sus Términos de Servicio y legislaciones de protección de datos vigentes. El autor no se responsabiliza por usos indebidos.
+> ⚠️ **Aviso ético / Ethical Notice:** This project is for educational and ethical cybersecurity purposes only. El uso de esta herramienta sobre sitios sin autorización puede violar sus Términos de Servicio y legislaciones de protección de datos vigentes. El autor no se responsabiliza por usos indebidos.
 
 ---
 
