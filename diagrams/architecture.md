@@ -9,9 +9,4 @@ graph TD
     C -->|HTML/Assets| B
     B -->|Genera Reportes| D[data/]
     B -->|Logica de Auditoria| E[tests/]
-    
-    subgraph DevSecOps
-        F[GitLab - Private Lab] -->|Sincronización Sanitizada| G[scripts/publish_public.ps1]
-        G -->|Push Forzado| H[GitHub - Public Portfolio]
-    end
 ```

@@ -14,4 +14,4 @@ Documento técnico que describe el funcionamiento interno, dependencias y protoc
 - Delay entre peticiones para evitar bloqueo IP.
 
 ## 4. Pipeline CI/CD
-Integración con GitLab Runner para análisis estático y ejecución de pruebas unitarias previo al despliegue.
+Integración con GitHub Actions para análisis estático y ejecución de pruebas unitarias previo al despliegue.

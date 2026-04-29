@@ -5,7 +5,7 @@
 ![Requests](https://img.shields.io/badge/Requests-HTTP%20Client-FF6C37?style=flat&logo=python&logoColor=white)
 ![License MIT](https://img.shields.io/badge/License-MIT-F7CA18?style=flat&logo=open-source-initiative&logoColor=black)
 ![Data Science](https://img.shields.io/badge/Área-Data%20Science-8A2BE2?style=flat&logo=databricks&logoColor=white)
-![Estado](https://img.shields.io/badge/Estado-Activo-brightgreen?style=flat)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat&logo=github-actions&logoColor=white)
 
 Herramienta de extracción automatizada de datos y recursos desde páginas web estáticas, desarrollada en Python. Permite auditar activos web, recolectar enlaces y procesar el contenido HTML de cualquier sitio objetivo de forma estructurada y reproducible.
 
@@ -139,22 +139,6 @@ Web-Scraping/
 
 ---
 
-## 🌐 Repository Architecture
-
-Este proyecto sigue una arquitectura de repositorio distribuida:
-
-| Plataforma | Rol | Contenido |
-|---|---|---|
-| **GitHub** | Portafolio público | Código fuente, documentación y diagramas |
-| **GitLab** | Laboratorio completo | Implementación extendida, tests y configuraciones |
-
-### 🔗 Full Source Code
-
-👉 Código completo e implementación integral disponible en GitLab:
-**[https://gitlab.com/group-data-ia-lab/Web-Scraping](https://gitlab.com/group-data-ia-lab/Web-Scraping)**
-
----
-
 ## 🚀 Roadmap
 
 - [ ] Soporte para argumentos de línea de comandos con `argparse` (URL, formato de salida, verbosidad)
@@ -180,7 +164,6 @@ Consulta el archivo [`LICENSE`](./LICENSE) para ver los términos completos.
 Desarrollador de software especializado en automatización de datos y scripting Python.
 
 - 🐙 GitHub: [@devsebastian44](https://github.com/devsebastian44)
-- 🦊 GitLab: [group-data-ia-lab](https://gitlab.com/group-data-ia-lab)
 
 ---
 
